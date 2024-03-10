@@ -7,10 +7,12 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false --browsers ChromeHeadlessNoSandbox",
-    "lint": "ng lint"
+    "lint": "npx eslint \"src/**/*.{ts,tsx,html}\" --quiet --fix",
+    "format": "npx prettier \"src/**/*.{ts,tsx,html,css,scss}\" --write"
   },
   "husky": {
     "hooks": {
+      "pre-commit": "npm run lint && npm run format --staged",
       "pre-push": "npm run test:headless"
     }
   },
