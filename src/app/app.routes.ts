@@ -6,7 +6,6 @@ import { ImprintComponent } from './imprint/imprint.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
-  { path: '**', component: ProductsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'product', component: AppComponent }, //TODO @Danny
   { path: 'about', component: AboutUsComponent },
