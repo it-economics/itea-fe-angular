@@ -7,7 +7,9 @@
       "@models": ["src/app/models"],
       "@models/*": ["src/app/models/*"],
       "@services": ["src/app/services"],
-      "@services/*": ["src/app/services/*"]
+      "@services/*": ["src/app/services/*"],
+      "@stubs": ["src/assets/stubs"],
+      "@stubs/*": ["src/assets/stubs/*"],
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
