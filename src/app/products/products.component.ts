@@ -2,11 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '@models';
 import { ProductsApiService } from '@services';
 import { Subject, takeUntil } from 'rxjs';
+import { NgForOf } from '@angular/common';
+import { ProductTileComponent } from './product-tile/product-tile.component';
 
 @Component({
     selector: 'app-products',
     standalone: true,
-    imports: [],
+    imports: [NgForOf, ProductTileComponent],
     templateUrl: './products.component.html',
     styleUrl: './products.component.scss',
 })

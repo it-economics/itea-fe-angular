@@ -1,5 +1,11 @@
-<div class="d-flex">
+<div class="d-flex height-100-p">
     <div class="col-2"></div>
-    <div class="col"></div>
+    <div class="col">
+        <div class="d-flex flex-wrap">
+            <ng-container *ngFor="let product of products">
+                <app-product-tile [product]="product"></app-product-tile>
+            </ng-container>
+        </div>
+    </div>
     <div class="col-2"></div>
 </div>
