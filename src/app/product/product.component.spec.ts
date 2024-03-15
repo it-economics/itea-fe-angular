@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProductComponent } from './product.component';
 import { ProductsApiService } from '@services';
 import { of } from 'rxjs';
@@ -46,5 +45,17 @@ describe('ProductComponent', () => {
 
     it('should fetch the product and store it in product', () => {
         expect(component.product).toEqual(productsStub[0]);
+    });
+
+    it('should cancel subscription', () => {
+        // @ts-expect-error private property
+        const nextSpy = spyOn(component._destroy$, 'next');
+        // @ts-expect-error private property
+        const completeSpy = spyOn(component._destroy$, 'complete');
+
+        component.ngOnDestroy();
+
+        expect(nextSpy).toHaveBeenCalled();
+        expect(completeSpy).toHaveBeenCalled();
     });
 });

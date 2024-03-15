@@ -9,14 +9,18 @@ import { ProductTileComponent } from './product-tile/product-tile.component';
 describe('ProductsComponent', () => {
     let component: ProductsComponent;
     let fixture: ComponentFixture<ProductsComponent>;
+    let productApiSpy: jasmine.SpyObj<ProductsApiService>;
 
     beforeEach(async () => {
+        productApiSpy = jasmine.createSpyObj('ProductsApiService', ['getProducts']);
+        productApiSpy.getProducts.and.returnValue(of(productsStub));
+
         await TestBed.configureTestingModule({
-            imports: [ProductsComponent, ...MockComponents(ProductTileComponent)],
+            imports: [ProductsComponent, MockComponents(ProductTileComponent)],
             providers: [
                 {
                     provide: ProductsApiService,
-                    useValue: { getProducts: () => of(productsStub) },
+                    useValue: productApiSpy,
                 },
             ],
         }).compileComponents();
@@ -43,6 +47,7 @@ describe('ProductsComponent', () => {
     });
 
     it('should load products', () => {
+        expect(productApiSpy.getProducts).toHaveBeenCalledOnceWith();
         expect(component.products).toEqual(productsStub);
     });
 });

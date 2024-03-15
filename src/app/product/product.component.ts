@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this._route.paramMap.pipe(takeUntil(this._destroy$)).subscribe((params: ParamMap) => {
-            const productId = Number(params.get('id'));
+            const productId: number = Number(params.get('id'));
             this._productApiService
                 .getProduct(Number(productId))
                 .pipe(takeUntil(this._destroy$))
