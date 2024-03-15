@@ -8,6 +8,8 @@
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-icon-button class="product-button"><mat-icon>search</mat-icon></button>
+        <button mat-icon-button class="product-button" [routerLink]="['/product', product.id]">
+            <mat-icon>search</mat-icon>
+        </button>
     </mat-card-actions>
 </mat-card>
