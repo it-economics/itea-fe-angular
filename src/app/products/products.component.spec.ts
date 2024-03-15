@@ -3,6 +3,8 @@ import { ProductsComponent } from './products.component';
 import { productsStub } from '../assets/stubs';
 import { ProductsApiService } from '@services';
 import { of } from 'rxjs';
+import { MockComponents } from 'ng-mocks';
+import { ProductTileComponent } from './product-tile/product-tile.component';
 
 describe('ProductsComponent', () => {
     let component: ProductsComponent;
@@ -10,7 +12,7 @@ describe('ProductsComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [ProductsComponent],
+            imports: [ProductsComponent, ...MockComponents(ProductTileComponent)],
             providers: [
                 {
                     provide: ProductsApiService,
