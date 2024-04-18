@@ -1,32 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Product } from '@models';
-import { Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { GatewayService } from '@services/http-services';
+import { ProductResponse } from '@services/http-services/products/product-response';
+import { ProductMapper } from '@services/http-services/products/product-mapper';
+import { ProductsResponse } from '@services/http-services/products/products-response';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProductsApiService {
-    getProducts(): Observable<Product[]> {
-        //TODO @danny use real endpoint
-        const result: Product[] = [];
-        for (let i = 0; i < 200; i++) {
-            result.push(this.fakeProduct(i));
-        }
+    constructor(private readonly _gateway: GatewayService<Product>) {}
 
-        return of(result);
+    getProducts(): Observable<Product[]> {
+        return this._gateway
+            .get<ProductsResponse>(`products`)
+            .pipe(map((response) => ProductMapper.fromProductsResponse(response)));
     }
 
     getProduct(id: number): Observable<Product> {
-        //TODO @danny use real endpoint
-        return of(this.fakeProduct(id));
-    }
-
-    private fakeProduct(id: number) {
-        return {
-            id,
-            name: `Product ${id}`,
-            description: `Description for product ${id}`,
-            price: id * 11.11,
-        };
+        return this._gateway
+            .get<ProductResponse>(`product/${id}`)
+            .pipe(map((response) => ProductMapper.fromProductResponse(response)));
     }
 }
