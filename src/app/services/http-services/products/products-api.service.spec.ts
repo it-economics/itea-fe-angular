@@ -12,7 +12,7 @@ describe('ProductsApiService', () => {
     let service: ProductsApiService;
     let gatewayServiceSpy: jasmine.SpyObj<GatewayService<ProductResponse>>;
 
-    const productMock = { id: 1, name: 'name', price: 14.99 };
+    const productMock = { id: 1, name: 'name', imageName: 'imagName', price: 14.99 };
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -28,7 +28,7 @@ describe('ProductsApiService', () => {
 
     it('should fetch product by id', (done) => {
         const productResponseMock: ProductResponse = {
-            product: { id: { internalID: 1 }, name: 'name', price: { cents: 1499 } },
+            product: { id: { internalID: 1 }, imageName: 'imageName', name: 'name', price: { cents: 1499 } },
         };
         spyOn(ProductMapper, 'fromProductResponse').withArgs(productResponseMock).and.returnValue(productMock);
         gatewayServiceSpy.get.and.returnValue(of(productResponseMock));
@@ -42,7 +42,7 @@ describe('ProductsApiService', () => {
 
     it('should fetch all products', (done) => {
         const productsResponseMock: ProductsResponse = {
-            products: [{ id: { internalID: 1 }, name: 'name', price: { cents: 1499 } }],
+            products: [{ id: { internalID: 1 }, name: 'name', imageName: 'imagName', price: { cents: 1499 } }],
         };
         spyOn(ProductMapper, 'fromProductsResponse').withArgs(productsResponseMock).and.returnValue([productMock]);
         gatewayServiceSpy.get.and.returnValue(of(productsResponseMock));

@@ -7,10 +7,11 @@ describe('ProductMapper', () => {
                 product: {
                     id: { internalID: 1 },
                     name: 'name',
+                    imageName: 'imageName',
                     price: { cents: 1499 },
                 },
             })
-        ).toEqual({ id: 1, name: 'name', price: 14.99 });
+        ).toEqual({ id: 1, name: 'name', imageName: 'imageName', price: 14.99 });
     });
 
     it('should map from productsResponse', () => {
@@ -20,18 +21,20 @@ describe('ProductMapper', () => {
                     {
                         id: { internalID: 1 },
                         name: 'name1',
+                        imageName: 'imageName1',
                         price: { cents: 1111 },
                     },
                     {
                         id: { internalID: 2 },
                         name: 'name2',
+                        imageName: 'imageName2',
                         price: { cents: 2222 },
                     },
                 ],
             })
         ).toEqual([
-            { id: 1, name: 'name1', price: 11.11 },
-            { id: 2, name: 'name2', price: 22.22 },
+            { id: 1, name: 'name1', imageName: 'imageName1', price: 11.11 },
+            { id: 2, name: 'name2', imageName: 'imageName2', price: 22.22 },
         ]);
     });
 });

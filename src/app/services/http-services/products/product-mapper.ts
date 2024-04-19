@@ -7,6 +7,7 @@ export class ProductMapper {
         return {
             id: productResponse.product.id.internalID,
             name: productResponse.product.name,
+            imageName: productResponse.product.imageName,
             price: productResponse.product.price.cents / 100,
         };
     }
@@ -16,6 +17,7 @@ export class ProductMapper {
             return {
                 id: productResponse.id.internalID,
                 name: productResponse.name,
+                imageName: productResponse.imageName,
                 price: productResponse.price.cents / 100,
             };
         });
