@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductComponent } from './product.component';
-import { ProductsApiService } from '@services';
+
 import { of } from 'rxjs';
-import { productsStub } from '../assets/stubs';
+
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
+import { ProductsApiService } from '@services/http-services/products/products-api.service';
+import { productsStub } from '@stubs/products.stub';
 
 describe('ProductComponent', () => {
     let component: ProductComponent;

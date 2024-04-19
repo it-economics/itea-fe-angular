@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Product } from '@models';
-import { ProductsApiService } from '@services';
 import { Subject, takeUntil } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
+import { Product } from '@models/product';
+import { ProductsApiService } from '@services/http-services/products/products-api.service';
 
 @Component({
     selector: 'app-product',

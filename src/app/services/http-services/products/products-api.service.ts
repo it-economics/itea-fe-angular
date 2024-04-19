@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Product } from '@models';
 import { map, Observable } from 'rxjs';
-import { GatewayService } from '@services/http-services';
 import { ProductResponse } from '@services/http-services/products/product-response';
 import { ProductMapper } from '@services/http-services/products/product-mapper';
 import { ProductsResponse } from '@services/http-services/products/products-response';
+import { GatewayService } from '@services/http-services/gateway/gateway.service';
+import { Product } from '@models/product';
 
 @Injectable({
     providedIn: 'root',

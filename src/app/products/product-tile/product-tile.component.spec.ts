@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductTileComponent } from './product-tile.component';
-import { productsStub } from '../../assets/stubs';
 import { ActivatedRoute } from '@angular/router';
+import { productsStub } from '@stubs/products.stub';
 
 describe('ProductTileComponent', () => {
     let component: ProductTileComponent;

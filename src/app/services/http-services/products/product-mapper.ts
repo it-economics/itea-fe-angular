@@ -1,6 +1,6 @@
 import { ProductResponse } from '@services/http-services/products/product-response';
-import { Product } from '@models';
 import { ProductsResponse } from '@services/http-services/products/products-response';
+import { Product } from '@models/product';
 
 export class ProductMapper {
     public static fromProductResponse(productResponse: ProductResponse): Product {

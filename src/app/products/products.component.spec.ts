@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductsComponent } from './products.component';
-import { productsStub } from '../assets/stubs';
-import { ProductsApiService } from '@services';
 import { of } from 'rxjs';
 import { MockComponents } from 'ng-mocks';
 import { ProductTileComponent } from './product-tile/product-tile.component';
+import { ProductsApiService } from '@services/http-services/products/products-api.service';
+import { productsStub } from '@stubs/products.stub';
 
 describe('ProductsComponent', () => {
     let component: ProductsComponent;

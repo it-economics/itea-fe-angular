@@ -2,11 +2,11 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProductsApiService } from './products-api.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { GatewayService } from '@services';
 import { ProductResponse } from '@services/http-services/products/product-response';
 import { of } from 'rxjs';
 import { ProductMapper } from '@services/http-services/products/product-mapper';
 import { ProductsResponse } from '@services/http-services/products/products-response';
+import { GatewayService } from '@services/http-services/gateway/gateway.service';
 
 describe('ProductsApiService', () => {
     let service: ProductsApiService;
