@@ -4,11 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@models": ["src/app/models"],
       "@models/*": ["src/app/models/*"],
-      "@services": ["src/app/services"],
       "@services/*": ["src/app/services/*"],
-      "@stubs": ["src/app/assets/stubs"],
       "@stubs/*": ["src/app/assets/stubs/*"],
     },
     "outDir": "./dist/out-tsc",
