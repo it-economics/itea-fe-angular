@@ -7,12 +7,13 @@ import { of } from 'rxjs';
 import { ProductMapper } from '@services/http-services/products/product-mapper';
 import { ProductsResponse } from '@services/http-services/products/products-response';
 import { GatewayService } from '@services/http-services/gateway/gateway.service';
+import { Product } from '@models/product';
 
 describe('ProductsApiService', () => {
     let service: ProductsApiService;
     let gatewayServiceSpy: jasmine.SpyObj<GatewayService<ProductResponse>>;
 
-    const productMock = { id: 1, name: 'name', imageName: 'imagName', price: 14.99 };
+    const productMock: Product = { id: 1, name: 'name', imageUrl: 'imagName', price: 14.99 };
 
     beforeEach(() => {
         TestBed.configureTestingModule({
