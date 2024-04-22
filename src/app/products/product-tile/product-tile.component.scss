@@ -1,16 +1,14 @@
 .card-box {
-    border: 1px solid black;
-    height: 12rem;
-    width: 10rem;
+    border: 1px solid #e7e4e4;
+    min-height: 12rem;
+    width: 14rem;
     margin: 0rem;
 }
-.product-button {
-    border: none;
-    width: 100%;
-    display: block;
-    background-color: transparent;
-    color: lightgray;
+
+.card-box mat-card-content img {
+    object-fit: cover;
 }
+
 a {
     text-decoration: none;
     color: inherit;

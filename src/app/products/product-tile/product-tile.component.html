@@ -4,6 +4,7 @@
             <mat-card-title class="fw-bold">{{ product.name }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+            <img [src]="product.imageUrl" class="img-fluid" [alt]="product.name" />
             <div class="text-end">
                 <span>{{ product.price | currency: 'EUR' }}</span>
             </div>
