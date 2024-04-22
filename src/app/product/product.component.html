@@ -1,3 +1,17 @@
-<p>{{ product.name }}</p>
-<p>{{ product.description }}</p>
-<p>{{ product.price | currency: 'EUR' }}</p>
+<h1 class="mb-3">{{ product.name }}</h1>
+<div class="d-flex flex-column align-items-center">
+    <div class="d-flex w-100">
+        <img [src]="product.imageUrl" class="w-50" [alt]="product.name" />
+        <div class="w-50">
+            <p class="text-end mb-3">{{ product.price | currency: 'EUR' }}</p>
+            <p class="block-text ms-3">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </p>
+        </div>
+    </div>
+</div>
