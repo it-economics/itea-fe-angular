@@ -10,6 +10,7 @@ export class ProductMapper {
             name: productResponse.product.name,
             imageUrl: `${environment.CDN_IMAGE_URL}${productResponse.product.imageName}`,
             price: productResponse.product.price.cents / 100,
+            description: productResponse.product.description,
         };
     }
 
@@ -20,6 +21,7 @@ export class ProductMapper {
                 name: productResponse.name,
                 imageUrl: `${environment.CDN_IMAGE_URL}${productResponse.imageName}`,
                 price: productResponse.price.cents / 100,
+                description: productResponse.description,
             };
         });
     }

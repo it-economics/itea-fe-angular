@@ -4,5 +4,6 @@ export interface ProductsResponse {
         name: string;
         imageName: string;
         price: { cents: number };
+        description: string;
     }[];
 }
