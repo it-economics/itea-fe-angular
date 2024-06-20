@@ -1,4 +1,5 @@
 import { Product } from '@models/product';
+import { TaxType } from '@models/tax-type';
 
 export const productsStub: Product[] = [
     {
@@ -7,6 +8,7 @@ export const productsStub: Product[] = [
         description: 'Description for product 1',
         imageUrl: 'product-1.jpg',
         price: 11.11,
+        taxType: TaxType.STANDARD,
     },
     {
         id: 2,
@@ -14,5 +16,6 @@ export const productsStub: Product[] = [
         imageUrl: 'product-2.jpg',
         description: 'Description for product 2',
         price: 22.22,
+        taxType: TaxType.REDUCED,
     },
 ];
