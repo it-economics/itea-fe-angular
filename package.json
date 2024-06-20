@@ -6,10 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --watch=false --browsers ChromeHeadlessNoSandbox",
+    "test": "ng test --no-watch --browsers ChromeHeadless",
     "test:headless": "ng test --watch=false --code-coverage --browsers=ChromeHeadless",
     "lint": "npx eslint \"src/**/*.{ts,tsx,html}\" --quiet --fix",
-    "format": "npx prettier \"src/**/*.{ts,tsx,html,css,scss}\" --write"
+    "format": "npx prettier \"src/**/*.{ts,tsx,html,css,scss}\" --write",
+    "stryker": "npx stryker run"
   },
   "husky": {
     "hooks": {
