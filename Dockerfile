@@ -1,5 +1,5 @@
 # https://dev.to/rodrigokamada/creating-and-running-an-angular-application-in-a-docker-container-40mk
-# > docker build -t itea-fe .
+# > docker build -t itea-fe:latest -t itera-fe:001 .
 # > docker run -d -p 4201:4200 itea-fe
 
 FROM node:alpine
