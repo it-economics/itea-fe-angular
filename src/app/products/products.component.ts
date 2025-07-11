@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { NgForOf } from '@angular/common';
 import { ProductTileComponent } from './product-tile/product-tile.component';
@@ -15,8 +15,7 @@ import { ProductsApiService } from '@services/http-services/products/products-ap
 export class ProductsComponent implements OnInit, OnDestroy {
     products: Product[] = [];
     private _destroy$: Subject<void> = new Subject<void>();
-
-    constructor(private readonly _productApiService: ProductsApiService) {}
+    private _productApiService = inject(ProductsApiService);
 
     ngOnInit() {
         this._productApiService

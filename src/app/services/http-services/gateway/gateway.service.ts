@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 // TODO @Danny remove
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class GatewayService<T> {
-    constructor(private readonly _http: HttpClient) {}
+    private _http = inject(HttpClient);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     get<T>(path: string, params?: HttpParams, httpResponse?: 'response', type?: any): Observable<any> {
