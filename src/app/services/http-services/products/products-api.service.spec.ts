@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ProductsApiService } from './products-api.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ProductResponse } from '@services/http-services/products/product-response';
 import { of } from 'rxjs';
 import { ProductMapper } from '@services/http-services/products/product-mapper';
 import { ProductsResponse } from '@services/http-services/products/products-response';
 import { GatewayService } from '@services/http-services/gateway/gateway.service';
 import { Product } from '@models/product';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ProductsApiService', () => {
     let service: ProductsApiService;
@@ -23,7 +24,8 @@ describe('ProductsApiService', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
+            imports: [],
+            providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()],
         });
         gatewayServiceSpy = jasmine.createSpyObj('GatewayService', ['get']);
         service = new ProductsApiService(gatewayServiceSpy);
