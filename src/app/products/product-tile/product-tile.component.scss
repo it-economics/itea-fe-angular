@@ -1,8 +1,10 @@
 .card-box {
     border: 1px solid #e7e4e4;
     min-height: 12rem;
-    width: 14rem;
+    width: 20rem;
     margin: 0rem;
+    height: 100%;
+    margin: 1rem;
 }
 
 .card-box mat-card-content img {
@@ -12,4 +14,13 @@
 a {
     text-decoration: none;
     color: inherit;
+}
+
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+    background-size: cover;
 }

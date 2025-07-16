@@ -1,13 +1,12 @@
-<a [routerLink]="['/product', product.id]">
-    <!-- <mat-card class="card-box mt-1 me-1">
-        <mat-card-header class="mb-3">
+<a [routerLink]="['/product', product.id]" [attr.data-cy]="'product_' + product.name">
+    <mat-card class="card-box" appearance="outlined">
+        <mat-card-header>
             <mat-card-title class="fw-bold">{{ product.name }}</mat-card-title>
         </mat-card-header>
+        <img mat-card-image [src]="product.imageUrl" [alt]="product.name" />
         <mat-card-content>
-            <img [src]="product.imageUrl" class="img-fluid" [alt]="product.name" />
-            <div class="text-end">
-                <span>{{ product.price | currency: 'EUR' }}</span>
-            </div>
+            <p>{{ product.description }}</p>
+            <span>{{ product.price | currency: 'EUR' }}</span>
         </mat-card-content>
-    </mat-card> -->
+    </mat-card>
 </a>

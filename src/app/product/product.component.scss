@@ -2,3 +2,14 @@
     text-align: justify;
     text-justify: inter-word;
 }
+
+.flexbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    max-width: 500px;
+    max-height: 500px;
+}
