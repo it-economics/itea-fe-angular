@@ -1,4 +1,4 @@
-<span>search: <input [(ngModel)]="searchTerm" (ngModelChange)="onInputChange($event)" /> </span>
+<span>search: <input data-cy="search-bar" [(ngModel)]="searchTerm" (ngModelChange)="onInputChange($event)" /> </span>
 <div class="d-flex flex-wrap justify-content-center">
     <ng-container *ngFor="let product of filteredProducts">
         <app-product-tile [product]="product"></app-product-tile>

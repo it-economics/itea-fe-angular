@@ -29,9 +29,14 @@
 declare namespace Cypress {
     interface Chainable {
         // Aufgabe 6
+        // Registriere deine Commands hier
+        // login(email, password): Chainable<void>;
         openDetailPage(dataCyProduct: string): Chainable<void>
     }
 }
+
+// Füge hier neue Custom Commands hinzu
+// Cypress.Commands.add('login', (email, password) => { ... })
 
 // Aufgabe 6
 Cypress.Commands.add('openDetailPage', (dataCyProduct: string) => {

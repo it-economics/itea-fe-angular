@@ -1,34 +1,47 @@
-Per Mail: Nodejs und angularcli müssen installiert sein, npm i ausführen, Visual Studio Code benutzen im Optimalfall, Testweise ng serve ausprobieren
+Wir wollen unser itea Frontend um e2e Tests erweitern. 
+In manchen Aufgaben befinden sich Hinweise, die euch weiterhelfen, falls ihr nicht weiterkommt. Ihr könnt es natürlich auch erstmal so probieren.
+Die e2e Tests befinden sich alle unter cypress/e2e/spec.cy.ts
+Ihr könnt mit it.skip(...) Tests einfach skippen, wenn ihr die Tests aus vergangenen Aufgaben nicht immer ausführen wollt.
 
-1. Cypress zum Laufen bringen
-    a: Starte die Angular App mit "ng serve" (defaultmäßig wird der Port 4200 dafür verwendet, Test baut darauf auf)
-    b: Starte Cypress im Terminal mit "npx cypress open", wähle e2e Tests mit dem Browser deiner Wahl
-    c: Der bestehende Test sollte problemlos durchlaufen
+Aufgabe 1
+Zum ausführen der e2e Tests, muss unser Frontend laufen. Gebe dazu "ng serve" im Terminal ein. Standardmäßig startet das Frontend auf "http://localhost:4200/". Prüfe einmal nach, ob dir das Frontend angezeigt wird und alles geklappt hat. Danach kannst du zusätzlich Cypress mit dem Kommando "npx cypress open" starten. Wähle einen Browser deiner Wahl aus, wenn Cypress den bestehenden Test ausführt, hat das Setup geklappt und du kannst mit der nächsten Aufgabe weitermachen.
 
-2. Data-cys: An HTML Elemente hinzufügen und die ID von HTML Elementen herausfinden mit Cypress Tools
-    a: Teste, ob die Überschrift "Itea - best furniture in town" ist. Du musst dafür das HTML Template in "header.component.html" bearbeiten
-        Hint -> https://docs.cypress.io/app/core-concepts/best-practices#Selecting-Elements und https://docs.cypress.io/api/commands/should
-        -> funktioniert es nicht? Hast du die Seite aufgerufen?
-    b: Teste zusätzlich, ob das Produkt "Lampe" auf der Seite sichtbar ist, schreibe dafür einen neuen it-case. Die data-cy der Lampe kannst du über den Cypress selektor
-        rausfinden (oben mittig links neben der URL)
-    c: Welches Problem hast du in der vorigen Aufgabe entdeckt? https://docs.cypress.io/app/core-concepts/writing-and-organizing-tests#Hooks
-        schreibe den URL Aufruf in eine passende Hook und entferne ihn aus den it-cases
-        -> BeforeEach statt before, weil Cypress nach jedem it case alles resettet, auch das Seitenladen
 
-3. Reporting
-    a: mochawesome, Cypress basiert darauf, deswegen gut einzubinden
-    b: Test headless ausführen mit der Reporter Option "npx cypress run --reporter mochawesome
-    c: der Reporter ist in den cypress.config.ts eingebunden mit den Optionen (können bei Bedarf auch auf der Konsole mit übergeben werden, z.B. wenn man kein override will)
+Aufgabe 2
+Einer der beiden existierenden Testfälle schlägt fehl. Schau dir in Cypress die detailierten Schritte an, um den Fehler zu finden und passe den Test an, so dass er grün wird.
 
-TODO 4. Verschiedene Elemente bedienen: Button, Inputs (lesen+schreiben) - Bsp Text hat 5 drinnen, dann mit 10 überschreiben, sonst nicht -> Chaining; Seite: Registrieren, Formular
+Hinweis: Schau dir die best practices zum Selektieren von HTML Elementen an, um damit den obigen Fehler zu vermeiden https://docs.cypress.io/app/core-concepts/best-practices#Selecting-Elements. Für die Änderung musst du Anpassungen im HTML Code vornehmen (Komponente ist die header.component.html)
 
-5. API Call
-    a: Wir wollen testen, ob beim Klick auf die Lampe eine detailierte Ansicht aufgerufen wird. Prüfe auf der Detailseite nach einer beliebigen Data-cy, die jetzt vorhanden sein sollte (z.B. für den button) (component: product.component.html)
-    b: Was könnte es für Probleme geben, wenn wir die Produkte so testen, wie wir es gerade tun? Woher kommen die Produktdaten? Untersuche die Requests, welchen könnten wir abfangen? Hinweis: Entwicklerkonsole, https://docs.cypress.io/api/commands/wait
-    c: Schreibe den Test um, so dass du wait nimmst, logge dir einmal die response
-    d: du kannst auch den default timeout verändern, wielange Cypress ein Element suchen soll
 
-6. Commands schreiben: Produkt zu Warenkorb hinzufügen oder Detailansicht öffnen und Button drücken
-    a: Schreibe den Test aus der Aufgabe davor für ein anderes Shopelement
-    b: Du wirst sehen, dass beide ziemlich ähnlichen Code haben, wir können Aktionen in die Commands auslagern, die öfter in unseren Tests vorkommen
-    c: Klicke dann den Button auf der Detailseite
+Aufgabe 3
+Schreibe einen neuen it-case. Du kannst dir aussuchen, welches Element du worauf prüfen willst. Eine Übersicht der üblichsten Tests findest du hier. Du kannst auch auf mehrere testen: https://docs.cypress.io/app/references/assertions#Common-Assertions
+
+
+Aufgabe 4
+Aktuell haben wir in jedem it-case einen Aufruf der Webseite. Um das nicht jedesmal angeben zu müssen, können wir hooks definieren. Welche es genau gibt, siehst du hier: https://docs.cypress.io/app/core-concepts/writing-and-organizing-tests#Hooks.
+Wähle einen passenden Hook und lagere den cy.visit command dorthin aus
+
+
+Aufgabe 5
+Wir wollen jetzt ein bestimmtes Szenario testen: Nutzer xy möchte einen Stuhl zum Warenkorb hinzufügen. Dafür nutzt er die Produktsuche.
+TODOTODOTODO
+Tipp: Überlege dir hier, wo du am sinnvollsten data-cys einsetzt.
+
+
+Aufgabe 6
+In Cypress können Tests fehlschlagen, wenn die Daten im Backend nicht schnell genug geladen sind. Defaultmäßig versucht Cypress 4 Sekunden lang ein Command (z.B. cy.get) auszuführen, bevor er das Element als "nicht existierend" wahrnimmt. Werden in unserem Fall also erst nach den vier Sekunden die Produkte vom Backend geliefert, würden die Tests fehlschlagen.
+Um den entgegenzuwirken, kann man in Cypress auf Requests warten (30s default). Zur Sicherheit wollen wir das bei uns einbauen, sobald wir die Seite laden.
+Du brauchst dafür das wait und intercept Command von Cypress: https://docs.cypress.io/api/commands/wait
+Schreibe einen it-case, in dem die Detailseite der Lampe aufgerufen wird, sobald die Response vom Call da ist.
+Logge dir gern die Response im wait Command einmal mit und schau sie dir in der Entwicklerkonsole an.
+
+Hinweis: Du musst dein intercept Command vor dem API Aufruf (beforeHook) aufrufen.
+
+
+Aufgabe 7
+Cypress stellt einige Commands zur Verfügung (cy.get, cy.wait, ...). Wir können aber auch eigene Commands schreiben, die dann genauso mit cy.customCommand aufgerufen werden können. Zum Definieren und schreiben brauchst du die Datei "cypress/support/commands.ts".
+Ein mögliches Beispiel wäre das aus Aufgabe 7. Wir können den Code aus dem it Case in ein Command auslagern und somit für verschiedene Produkte verwenden. Schreibe den it-case einmal um, so dass du nur noch ein Command verwendest.
+
+
+Aufgabe 8
+In Cypress können die Tests auch headless laufen. Die Ergebnisse können mit einem Reporter (extra npm package) schön aufbereitet werden. In dem Projekt ist mochawesome eingebunden. Du kannst mit "npx cypress run --reporter mochawesome" die Tests headless starten. Cypress hinterlegt einen HTML Report in dem Ordner "cypress/reporters". 
