@@ -28,6 +28,7 @@ describe('itea', () => {
     cy.get('[data-cy="search-bar"').type("chair");
     cy.get('[data-cy="card-box"').should("have.length", 1);
     cy.get('[data-cy="product_Chair"').should("be.visible").click();
+    cy.get('[data-cy="btn_addToCart"').click();
   });
 
   // Aufgabe 7 (API Call)
