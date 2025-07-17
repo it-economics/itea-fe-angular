@@ -23,8 +23,8 @@ Wähle einen passenden Hook und lagere den cy.visit command dorthin aus
 
 
 Aufgabe 5
-Wir wollen jetzt ein bestimmtes Szenario testen: Nutzer xy möchte einen Stuhl zum Warenkorb hinzufügen. Dafür nutzt er die Produktsuche.
-TODOTODOTODO
+Wir wollen jetzt ein bestimmtes Szenario testen: Nutzer xy möchte einen Stuhl zum Warenkorb hinzufügen. Dafür nutzt er die Produktsuche. Bei der Suche wollen wir testen, ob auch nur ein Produkt zurückgeliefert wird. Der Test endet nach dem "zum Warenkorb hinzufügen" Klick.
+
 Tipp: Überlege dir hier, wo du am sinnvollsten data-cys einsetzt.
 
 
