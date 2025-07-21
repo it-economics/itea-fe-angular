@@ -7,7 +7,6 @@ import { ProductsApiService } from '@services/http-services/products/products-ap
 
 @Component({
     selector: 'app-product',
-    standalone: true,
     imports: [CurrencyPipe],
     templateUrl: './product.component.html',
     styleUrl: './product.component.scss',

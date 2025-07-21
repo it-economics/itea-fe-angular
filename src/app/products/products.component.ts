@@ -7,7 +7,6 @@ import { ProductsApiService } from '@services/http-services/products/products-ap
 
 @Component({
     selector: 'app-products',
-    standalone: true,
     imports: [NgForOf, ProductTileComponent],
     templateUrl: './products.component.html',
     styleUrl: './products.component.scss',

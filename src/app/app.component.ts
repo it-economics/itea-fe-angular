@@ -6,7 +6,6 @@ import { ProductTileComponent } from './products/product-tile/product-tile.compo
 
 @Component({
     selector: 'app-root',
-    standalone: true,
     imports: [CommonModule, RouterOutlet, HeaderComponent, ProductTileComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',

@@ -7,7 +7,6 @@ import { Product } from '@models/product';
 
 @Component({
     selector: 'app-product-tile',
-    standalone: true,
     imports: [CurrencyPipe, MatCardModule, MatIconModule, RouterLink],
     templateUrl: './product-tile.component.html',
     styleUrl: './product-tile.component.scss',
