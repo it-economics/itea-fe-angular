@@ -4,9 +4,15 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@models/*": ["src/app/models/*"],
-      "@services/*": ["src/app/services/*"],
-      "@stubs/*": ["src/app/assets/stubs/*"],
+      "@models/*": [
+        "src/app/models/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@stubs/*": [
+        "src/app/assets/stubs/*"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -21,7 +27,7 @@
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
