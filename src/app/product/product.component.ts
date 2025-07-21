@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
@@ -12,14 +12,12 @@ import { ProductsApiService } from '@services/http-services/products/products-ap
     styleUrl: './product.component.scss',
 })
 export class ProductComponent implements OnInit, OnDestroy {
+    private readonly _productApiService = inject(ProductsApiService);
+    private readonly _route = inject(ActivatedRoute);
+
     product: Product;
 
     private _destroy$: Subject<void> = new Subject<void>();
-
-    constructor(
-        private readonly _productApiService: ProductsApiService,
-        private readonly _route: ActivatedRoute
-    ) {}
 
     ngOnInit() {
         this._route.paramMap.pipe(takeUntil(this._destroy$)).subscribe((params: ParamMap) => {

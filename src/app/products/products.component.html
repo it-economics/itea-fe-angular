@@ -1,5 +1,5 @@
 <div class="d-flex flex-wrap justify-content-center">
-    <ng-container *ngFor="let product of products">
+    @for (product of products; track $index) {
         <app-product-tile [product]="product"></app-product-tile>
-    </ng-container>
+    }
 </div>

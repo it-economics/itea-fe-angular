@@ -1,5 +1,6 @@
 import { GatewayService } from './gateway.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
 describe('GatewayService', () => {
@@ -8,7 +9,12 @@ describe('GatewayService', () => {
 
     beforeEach(() => {
         httpMock = jasmine.createSpyObj('HttpClient', ['get', 'post', 'put', 'patch', 'delete']);
-        service = new GatewayService(httpMock);
+
+        TestBed.configureTestingModule({
+            providers: [GatewayService, { provide: HttpClient, useValue: httpMock }],
+        });
+
+        service = TestBed.inject(GatewayService);
     });
 
     it('should be created', () => {
