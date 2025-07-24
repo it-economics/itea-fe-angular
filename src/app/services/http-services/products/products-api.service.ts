@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ProductResponse } from '@services/http-services/products/product-response';
 import { ProductMapper } from '@services/http-services/products/product-mapper';
@@ -10,7 +10,7 @@ import { Product } from '@models/product';
     providedIn: 'root',
 })
 export class ProductsApiService {
-    constructor(private readonly _gateway: GatewayService<Product>) {}
+    private readonly _gateway = inject(GatewayService<Product>);
 
     getProducts(): Observable<Product[]> {
         return this._gateway
