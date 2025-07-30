@@ -1,12 +1,14 @@
-<h1 class="mb-3">{{ product.name }}</h1>
-<div class="d-flex flex-column align-items-center">
-    <div class="d-flex w-100">
-        <img [src]="product.imageUrl" class="w-50" [alt]="product.name" />
-        <div class="w-50">
-            <p class="text-end mb-3">{{ product.price | currency: 'EUR' }}</p>
-            <p class="block-text ms-3">
-                {{ product.description }}
-            </p>
+@if (product) {
+    <h1 class="mb-3">{{ product.name }}</h1>
+    <div class="d-flex flex-column align-items-center">
+        <div class="d-flex w-100">
+            <img [src]="product.imageUrl" class="w-50" [alt]="product.name" />
+            <div class="w-50">
+                <p class="text-end mb-3">{{ product.price | currency: 'EUR' }}</p>
+                <p class="block-text ms-3">
+                    {{ product.description }}
+                </p>
+            </div>
         </div>
     </div>
-</div>
+}
