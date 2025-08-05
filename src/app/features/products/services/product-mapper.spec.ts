@@ -1,5 +1,5 @@
-import { ProductMapper } from '@services/http-services/products/product-mapper';
 import { environment } from 'src/environments/environment';
+import { ProductMapper } from './product-mapper';
 
 describe('ProductMapper', () => {
     const imageUrl = environment.CDN_IMAGE_URL;

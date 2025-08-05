@@ -1,14 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProductsComponent } from './products.component';
-import { of } from 'rxjs';
+import { ProductCatalogueComponent } from './product-catalogue.component';
 import { MockComponents } from 'ng-mocks';
-import { ProductTileComponent } from './product-tile/product-tile.component';
-import { ProductsApiService } from '@services/http-services/products/products-api.service';
-import { productsStub } from '@stubs/products.stub';
+import { of } from 'rxjs';
+import { ProductsApiService } from '../../services/products-api.service';
+import { productsStub } from 'src/assets/stubs/products.stub';
 
-describe('ProductsComponent', () => {
-    let component: ProductsComponent;
-    let fixture: ComponentFixture<ProductsComponent>;
+describe('ProductCatalogueComponent', () => {
+    let component: ProductCatalogueComponent;
+    let fixture: ComponentFixture<ProductCatalogueComponent>;
     let productApiSpy: jasmine.SpyObj<ProductsApiService>;
 
     beforeEach(async () => {
@@ -16,7 +15,7 @@ describe('ProductsComponent', () => {
         productApiSpy.getProducts.and.returnValue(of(productsStub));
 
         await TestBed.configureTestingModule({
-            imports: [ProductsComponent, MockComponents(ProductTileComponent)],
+            imports: [ProductCatalogueComponent, MockComponents(ProductCatalogueComponent)],
             providers: [
                 {
                     provide: ProductsApiService,
@@ -25,7 +24,7 @@ describe('ProductsComponent', () => {
             ],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(ProductsComponent);
+        fixture = TestBed.createComponent(ProductCatalogueComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

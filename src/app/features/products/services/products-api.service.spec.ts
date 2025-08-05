@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ProductsApiService } from './products-api.service';
-import { ProductResponse } from '@services/http-services/products/product-response';
 import { of } from 'rxjs';
-import { ProductMapper } from '@services/http-services/products/product-mapper';
-import { ProductsResponse } from '@services/http-services/products/products-response';
-import { GatewayService } from '@services/http-services/gateway/gateway.service';
-import { Product } from '@models/product';
+import { GatewayService } from 'src/app/core/services/gateway.service';
+import { Product } from '../product.model';
+import { ProductMapper } from './product-mapper';
+import { ProductResponse } from './product-response';
+import { ProductsResponse } from './products-response';
 
 describe('ProductsApiService', () => {
     let service: ProductsApiService;

@@ -1,10 +1,10 @@
 import { Injectable, inject, isDevMode } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { ProductResponse } from '@services/http-services/products/product-response';
-import { ProductMapper } from '@services/http-services/products/product-mapper';
-import { ProductsResponse } from '@services/http-services/products/products-response';
-import { GatewayService } from '@services/http-services/gateway/gateway.service';
-import { Product } from '@models/product';
+import { GatewayService } from 'src/app/core/services/gateway.service';
+import { Product } from '../product.model';
+import { ProductMapper } from './product-mapper';
+import { ProductResponse } from './product-response';
+import { ProductsResponse } from './products-response';
 
 @Injectable({
     providedIn: 'root',

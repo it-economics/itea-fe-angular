@@ -1,7 +1,7 @@
-import { ProductResponse } from '@services/http-services/products/product-response';
-import { ProductsResponse } from '@services/http-services/products/products-response';
-import { Product } from '@models/product';
 import { environment } from 'src/environments/environment';
+import { Product } from '../product.model';
+import { ProductResponse } from './product-response';
+import { ProductsResponse } from './products-response';
 
 export class ProductMapper {
     public static fromProductResponse(productResponse: ProductResponse): Product {

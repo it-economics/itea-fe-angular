@@ -2,16 +2,16 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
-import { Product } from '@models/product';
-import { ProductsApiService } from '@services/http-services/products/products-api.service';
+import { Product } from '../../product.model';
+import { ProductsApiService } from '../../services/products-api.service';
 
 @Component({
-    selector: 'app-product',
+    selector: 'app-product-detail',
     imports: [CurrencyPipe],
-    templateUrl: './product.component.html',
-    styleUrl: './product.component.scss',
+    templateUrl: './product-detail.component.html',
+    styleUrl: './product-detail.component.scss',
 })
-export class ProductComponent implements OnInit, OnDestroy {
+export class ProductDetailComponent implements OnInit, OnDestroy {
     private readonly _productApiService = inject(ProductsApiService);
     private readonly _route = inject(ActivatedRoute);
 

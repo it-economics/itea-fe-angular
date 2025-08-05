@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap justify-content-center">
+    @for (product of products; track $index) {
+        <a [routerLink]="['/product', product.id]">
+            <mat-card class="card-box mt-1 me-1">
+                <mat-card-header class="mb-3">
+                    <mat-card-title class="fw-bold">{{ product.name }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <img [src]="product.imageUrl" class="img-fluid" [alt]="product.name" />
+                    <div class="text-end">
+                        <span>{{ product.price | currency: 'EUR' }}</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </a>
+    }
+</div>

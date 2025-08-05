@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProductComponent } from './product.component';
+import { ProductDetailComponent } from './product-detail.component';
 
 import { of } from 'rxjs';
 
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
-import { ProductsApiService } from '@services/http-services/products/products-api.service';
-import { productsStub } from '@stubs/products.stub';
+import { ProductsApiService } from '../../services/products-api.service';
+import { productsStub } from 'src/assets/stubs/products.stub';
 
 describe('ProductComponent', () => {
-    let component: ProductComponent;
-    let fixture: ComponentFixture<ProductComponent>;
+    let component: ProductDetailComponent;
+    let fixture: ComponentFixture<ProductDetailComponent>;
     let productApiSpy: jasmine.SpyObj<ProductsApiService>;
 
     beforeEach(async () => {
@@ -17,7 +17,7 @@ describe('ProductComponent', () => {
         productApiSpy.getProduct.and.returnValue(of(productsStub[0]));
 
         await TestBed.configureTestingModule({
-            imports: [ProductComponent],
+            imports: [ProductDetailComponent],
             providers: [
                 {
                     provide: ProductsApiService,
@@ -32,7 +32,7 @@ describe('ProductComponent', () => {
             ],
         }).compileComponents();
 
-        fixture = TestBed.createComponent(ProductComponent);
+        fixture = TestBed.createComponent(ProductDetailComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

@@ -1,4 +1,4 @@
-import { Product } from '@models/product';
+import { Product } from 'src/app/features/products/product.model';
 
 export const productsStub: Product[] = [
     {
