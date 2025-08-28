@@ -1,5 +1,17 @@
+<div class="container my-3">
+    <input
+        type="search"
+        class="form-control"
+        placeholder="Search products..."
+        aria-label="Search products"
+        [(ngModel)]="searchQuery"
+    />
+</div>
+
 <div class="d-flex flex-wrap justify-content-center">
-    @for (product of products; track $index) {
+    @for (product of filteredProducts; track product.id) {
         <app-product-tile [product]="product"></app-product-tile>
+    } @empty {
+        <div class="text-muted py-5">No products found.</div>
     }
 </div>

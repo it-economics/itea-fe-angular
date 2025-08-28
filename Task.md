@@ -5,9 +5,7 @@ Questions:
 Tasks:
 - Check why wrong product is added to cart and fix it
 - Create a fade in effect when a product page is loaded
-
-// Suche:
-// Error: Liste wird nicht neugerendert, wenn etwas im suchfeld eingegeben wird
+- Search for a product is broken
 
 // Styling:
 // Error: Center h1 in products.html

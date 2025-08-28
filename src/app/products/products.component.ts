@@ -3,10 +3,11 @@ import { Subject, takeUntil } from 'rxjs';
 import { ProductTileComponent } from './product-tile/product-tile.component';
 import { Product } from '@models/product';
 import { ProductsApiService } from '@services/http-services/products/products-api.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-products',
-    imports: [ProductTileComponent],
+    imports: [ProductTileComponent, FormsModule],
     templateUrl: './products.component.html',
     styleUrl: './products.component.scss',
 })
@@ -14,6 +15,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
     private readonly _productApiService = inject(ProductsApiService);
 
     products: Product[] = [];
+    searchQuery = '';
+
     private _destroy$: Subject<void> = new Subject<void>();
 
     ngOnInit() {
@@ -23,6 +26,16 @@ export class ProductsComponent implements OnInit, OnDestroy {
             .subscribe((products) => {
                 this.products = products;
             });
+    }
+
+    get filteredProducts(): Product[] {
+        const query = this.searchQuery.trim().toLowerCase();
+        if (!query) {
+            return this.products;
+        }
+        return this.products.filter((product) =>
+            product.name.toLowerCase().includes(query) || product.description?.toLowerCase().includes(query),
+        );
     }
 
     ngOnDestroy() {
